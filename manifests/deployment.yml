@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "darkarmycluster-eac4"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "darkarmycluster-eac4"
+  template:
+    metadata:
+      labels:
+        app: "darkarmycluster-eac4"
+    spec:
+      containers:
+        - name: "darkarmycluster-eac4"
+          image: "armyclusterregistry.azurecr.io/darkarmycluster"
+          ports:
+          - containerPort: 8080
